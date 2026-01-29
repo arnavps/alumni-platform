@@ -5,11 +5,11 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "#f5f5f7",
+                background: "#f8f9fb",
                 surface: "#ffffff",
-                primary: "#2563eb",
-                primarySoft: "#dbeafe",
-                accent: "#0f172a",
+                primary: "#f97316",
+                primarySoft: "#ffedd5",
+                accent: "#111827",
             },
             borderRadius: {
                 xl: "1rem",

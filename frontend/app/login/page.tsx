@@ -42,7 +42,7 @@ export default function LoginPage() {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-background">
-            <main className="w-full max-w-md rounded-2xl bg-surface p-8 shadow-card">
+            <main className="auth-card w-full max-w-md p-8">
                 <h1 className="text-xl font-semibold text-slate-900">Log in</h1>
                 <p className="mt-1 text-sm text-slate-500">
                     Access the alumni engagement & networking platform.
@@ -54,7 +54,7 @@ export default function LoginPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                             required
                         />
                     </div>
@@ -64,7 +64,7 @@ export default function LoginPage() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                             required
                         />
                     </div>
@@ -72,7 +72,7 @@ export default function LoginPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-600 disabled:opacity-60"
+                        className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-orange-500 disabled:opacity-60"
                     >
                         {loading ? "Signing in..." : "Sign in"}
                     </button>

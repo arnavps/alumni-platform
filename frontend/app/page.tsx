@@ -13,7 +13,7 @@ export default function Home() {
         <div className="mt-6 flex gap-3">
           <Link
             href="/login"
-            className="inline-flex flex-1 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-600"
+            className="inline-flex flex-1 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-orange-500"
           >
             Log in
           </Link>

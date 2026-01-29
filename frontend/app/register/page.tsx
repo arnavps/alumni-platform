@@ -43,7 +43,7 @@ export default function RegisterPage() {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-background">
-            <main className="w-full max-w-md rounded-2xl bg-surface p-8 shadow-card">
+            <main className="auth-card w-full max-w-md p-8">
                 <h1 className="text-xl font-semibold text-slate-900">Create an account</h1>
                 <p className="mt-1 text-sm text-slate-500">
                     Choose your role and set up your profile to get started.
@@ -54,7 +54,7 @@ export default function RegisterPage() {
                         <select
                             value={role}
                             onChange={(e) => setRole(e.target.value as any)}
-                            className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                         >
                             <option value="STUDENT">Student</option>
                             <option value="ALUMNI">Alumni</option>
@@ -67,7 +67,7 @@ export default function RegisterPage() {
                             <input
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
-                                className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                                 required
                             />
                         </div>
@@ -76,7 +76,7 @@ export default function RegisterPage() {
                             <input
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
-                                className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                                 required
                             />
                         </div>
@@ -87,7 +87,7 @@ export default function RegisterPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                             required
                         />
                     </div>
@@ -97,7 +97,7 @@ export default function RegisterPage() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none ring-primary/30 focus:ring"
+                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
                             required
                         />
                     </div>
@@ -105,7 +105,7 @@ export default function RegisterPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-600 disabled:opacity-60"
+                        className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-orange-500 disabled:opacity-60"
                     >
                         {loading ? "Creating account..." : "Create account"}
                     </button>
