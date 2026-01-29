@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowLeftIcon } from "lucide-react";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:4000";
 
@@ -42,74 +45,121 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-background">
-            <main className="auth-card w-full max-w-md p-8">
-                <h1 className="text-xl font-semibold text-slate-900">Create an account</h1>
-                <p className="mt-1 text-sm text-slate-500">
-                    Choose your role and set up your profile to get started.
-                </p>
-                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#1E3A5F] via-[#0F172A] to-[#0F172A] py-12">
+            {/* Particles Background */}
+            <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-20 left-10 h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
+                <div className="absolute top-40 right-20 h-1.5 w-1.5 animate-pulse rounded-full bg-blue-400 animation-delay-200" />
+                <div className="absolute bottom-40 left-1/4 h-2 w-2 animate-pulse rounded-full bg-cyan-300 animation-delay-500" />
+                <div className="absolute top-60 right-1/3 h-1 w-1 animate-pulse rounded-full bg-blue-300 animation-delay-700" />
+            </div>
+
+            {/* Back to Home Link */}
+            <Link
+                href="/"
+                className="absolute top-8 left-8 flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
+            >
+                <ArrowLeftIcon className="h-4 w-4" />
+                Back to home
+            </Link>
+
+            <main className="auth-card relative w-full max-w-md p-8">
+                <div className="mb-6 text-center">
+                    <Link href="/" className="mb-4 inline-flex">
+                        <Image
+                            src="/Logo.png"
+                            alt="Alumni Platform Logo"
+                            width={48}
+                            height={48}
+                            className="rounded-xl"
+                        />
+                    </Link>
+                    <h1 className="text-2xl font-bold text-slate-900">Create your account</h1>
+                    <p className="mt-2 text-sm text-slate-600">
+                        Join the alumni engagement platform today
+                    </p>
+                </div>
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="text-xs font-medium text-slate-600">Role</label>
+                        <label className="text-sm font-medium text-slate-700">I am a</label>
                         <select
                             value={role}
                             onChange={(e) => setRole(e.target.value as any)}
-                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
+                            className="mt-2 h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
                         >
                             <option value="STUDENT">Student</option>
                             <option value="ALUMNI">Alumni</option>
                             <option value="FACULTY">Faculty/Admin</option>
                         </select>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="text-xs font-medium text-slate-600">First name</label>
+                            <label className="text-sm font-medium text-slate-700">First name</label>
                             <input
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
-                                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
+                                placeholder="John"
+                                className="mt-2 h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
                                 required
                             />
                         </div>
                         <div>
-                            <label className="text-xs font-medium text-slate-600">Last name</label>
+                            <label className="text-sm font-medium text-slate-700">Last name</label>
                             <input
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
-                                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
+                                placeholder="Doe"
+                                className="mt-2 h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
                                 required
                             />
                         </div>
                     </div>
                     <div>
-                        <label className="text-xs font-medium text-slate-600">Email</label>
+                        <label className="text-sm font-medium text-slate-700">Email address</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
+                            placeholder="you@university.edu"
+                            className="mt-2 h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
                             required
                         />
                     </div>
                     <div>
-                        <label className="text-xs font-medium text-slate-600">Password</label>
+                        <label className="text-sm font-medium text-slate-700">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors duration-200 focus:border-primary focus:ring-primary/30 focus:ring"
+                            placeholder="Create a strong password"
+                            className="mt-2 h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
                             required
                         />
                     </div>
-                    {error && <p className="text-xs text-red-600">{error}</p>}
+                    {error && (
+                        <div className="rounded-lg bg-red-50 border border-red-200 p-3">
+                            <p className="text-sm text-red-700">{error}</p>
+                        </div>
+                    )}
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-orange-500 disabled:opacity-60"
+                        className="mt-6 flex h-12 w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                     >
                         {loading ? "Creating account..." : "Create account"}
                     </button>
                 </form>
+                <div className="mt-6 text-center">
+                    <p className="text-sm text-slate-600">
+                        Already have an account?{" "}
+                        <Link
+                            href="/login"
+                            className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                        >
+                            Sign in
+                        </Link>
+                    </p>
+                </div>
             </main>
         </div>
     );

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { AuthenticatedRequest } from '../../middleware/auth';
-import { createOpportunityDb, listOpportunitiesDb } from './opportunity.service';
+import { createOpportunityDb, listOpportunitiesDb, OpportunityFilters } from './opportunity.service';
 
 const createOpportunitySchema = z.object({
     type: z.enum(['JOB', 'INTERNSHIP', 'MENTORSHIP', 'EVENT']),
@@ -17,14 +17,18 @@ const createOpportunitySchema = z.object({
 
 export const listOpportunities = async (req: Request, res: Response, next: NextFunction) => {
     try {
+        console.log("Received opportunities request with query:", req.query);
         const { type, domain, company } = req.query;
-        const opportunities = await listOpportunitiesDb({
-            type: typeof type === 'string' ? type : undefined,
-            domain: typeof domain === 'string' ? domain : undefined,
-            company: typeof company === 'string' ? company : undefined,
-        });
+        const filters: OpportunityFilters = {};
+        if (typeof type === 'string') filters.type = type;
+        if (typeof domain === 'string') filters.domain = domain;
+        if (typeof company === 'string') filters.company = company;
+
+        const opportunities = await listOpportunitiesDb(filters);
+        console.log("Returning", opportunities.length, "opportunities");
         res.json({ opportunities });
     } catch (err) {
+        console.error("Error in listOpportunities:", err);
         next(err);
     }
 };

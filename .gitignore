@@ -1,36 +1,98 @@
-# Node / TypeScript
+# Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.npm
+.pnpm-store
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn/patches
 
-# Environment
+# Environment Variables
 .env
 .env.local
-.env.development
-.env.test
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
 backend/.env
 frontend/.env.local
 
-# Build output
+# Build Outputs
+.next/
+out/
+dist/
+build/
 backend/dist/
 frontend/.next/
-.next/
+.nexus/
 
 # Logs
-logs/
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# Coverage
-coverage/
+# Database
+data/
+*.sqlite
+*.db
+*.sqlite3
 
-# OS / IDE
-.DS_Store
-Thumbs.db
+# IDE and Editor
 .vscode/
 .idea/
-
-# Misc
-*.tmp
 *.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+coverage/
+.nyc_output/
+.jest/
+__tests__/__snapshots__/
+
+# Type Checking
+.tscache/
+*.tsbuildinfo
+
+# Package Manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Deployment
+.vercel
+.now
+.render
+
+# Temporary Files
+*.tmp
+*.temp
+*.dump
+*.swp
+*.bak
+
+# OS Generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Vercel
+.vercel/output/
+.vercel/
+
+# Render
+.render-buildpacks/
+
+# Qoder
+.qoder/
