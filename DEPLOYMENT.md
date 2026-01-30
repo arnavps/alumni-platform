@@ -15,6 +15,8 @@
    - Go to [Vercel Dashboard](https://vercel.com/dashboard)
    - Click "Add New Project"
    - Import your GitHub repository
+   - **IMPORTANT**: In the "Framework Preset" settings, ensure Next.js is selected.
+   - **IMPORTANT**: In the "Root Directory" settings, click "Edit" and select `frontend`.
    - Configure environment variables:
      ```
      NEXT_PUBLIC_API_BASE_URL=https://your-backend-url.onrender.com
