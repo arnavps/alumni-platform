@@ -59,6 +59,10 @@ SUPABASE_DB_URL=your_supabase_connection_string
 JWT_ACCESS_SECRET=your_strong_secret_key
 JWT_REFRESH_SECRET=your_strong_refresh_key
 NODE_ENV=production
+MAX_REFERRAL_REQUESTS_PER_MONTH=5
+MAX_MENTORSHIP_REQUESTS_PER_MONTH=5
+RATE_LIMIT_WINDOW_SECONDS=60
+RATE_LIMIT_MAX_REQUESTS=100
 ```
 
 ## 📋 Pre-deployment Checklist

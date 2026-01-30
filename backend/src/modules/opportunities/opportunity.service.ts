@@ -41,13 +41,13 @@ export const createOpportunityDb = async (data: {
     createdBy: string;
     type: 'JOB' | 'INTERNSHIP' | 'MENTORSHIP' | 'EVENT';
     title: string;
-    company?: string;
-    location?: string;
-    remote?: boolean;
-    domain?: string;
-    role?: string;
-    description?: string;
-    applyUrl?: string;
+    company?: string | undefined;
+    location?: string | undefined;
+    remote?: boolean | undefined;
+    domain?: string | undefined;
+    role?: string | undefined;
+    description?: string | undefined;
+    applyUrl?: string | undefined;
 }) => {
     const result = await query(
         `INSERT INTO opportunities (created_by, type, title, company, location, remote, domain, role, description, apply_url)
